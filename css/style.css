@@ -1,39 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@tomo-25 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-tomo-25
-/
-tomo-25.github.io
-0
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-tomo-25.github.io/css/style.css
-@tomo-25
-tomo-25 Add files via upload
-Latest commit 9e5bf1a on 29 Jul
- History
- 1 contributor
-391 lines (384 sloc)  6.87 KB
-  
-
 /*<===共通===>*/
 * {
   margin: 0;
@@ -60,13 +24,11 @@ p {
   line-height: 1.5rem;
 }
 .boxx {
-  display: inline-block;
   padding: 6rem 3.5rem;
   background: rgb(247, 245, 245);
-  position: relative;
   width: 24rem;
   height: 25rem;
-  margin: 0 auto;
+  position: relative;
 }
 h2 {
   margin-top: -5rem;
@@ -80,80 +42,158 @@ h2::after {
   background-color: #000;
   display: block;
 }
-/*<===nav===>*/
-.nav-items {
+/*<===ハンバーガーメニュー===>*/
+.humberger {
+  background-color: white;
+  width: 100%;
+  height: 3.75rem;
+  border-bottom: 3px solid black;
+  position: fixed;
+  z-index: 999;
+}
+.logo {
+  margin: 0 60px;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+}
+.nav-wrapper {
+  position: fixed;
+  display: block;
+  padding: 25px;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.open .nav-wrapper {
+  left: 0;
+  opacity: 1;
+}
+
+.nav-wrapper ul {
+  margin: 0;
+  padding: 0;
+}
+.nav-wrapper ul li {
+  list-style: none;
+  position: relative;
+  text-align: center;
+  line-height: 5rem;
+}
+.nav-wrapper ul li a {
   text-decoration: none;
-  position: relative;
-  font-size: 1.2rem;
-  position: relative;
-  display: flex;
-  padding: 2rem 0 0 45rem;
-  font-weight: bold;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  text-decoration: none;
+  transition-duration: 0.2s;
 }
-.nav-items::after {
-  position: absolute;
-  content: "";
-  background: rgba(24, 184, 212, 0.596);
-  transform: scale(0, 1); 
-  transform-origin: center; 
-  transition: 0.3s; 
-}
-.nav-items a:hover {
+.nav-wrapper ul li a:hover {
   color: rgba(24, 184, 212, 0.596);
 }
-.nav-items:hover::after {
-  transform: scale(1, 1);
+.nav-toggle {
+  display: block;
+  position: fixed;
+  cursor: pointer;
+  top: 23px;
+  left: 20px;
+  transition: all 0.5s;
 }
-.first,
-.second {
-  margin-right: 3rem;
+.open .nav-toggle {
+  left: 320px;
 }
-.nav-items li {
-  margin-top: 2rem;
-  margin-left: 3.5rem;
-  z-index: 88;
-}
-.nav-items a {
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.kasenn::after {
+.nav-toggle span {
+  display: block;
   position: absolute;
-  bottom: -0.7rem;
   left: 0;
-  content: "";
+  width: 30px;
+  height: 4px;
+  background: #8b7355;
+  border-radius: 2px;
+  transition: all 0.5s;
+}
+.nav-toggle .bar1 {
+  top: 3px;
+}
+.nav-toggle .bar2 {
+  top: 13px;
+}
+.nav-toggle .bar3 {
+  bottom: 3px;
+}
+.open .nav-toggle span {
+  background-color: #fff;
+}
+.open .nav-toggle {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  z-index: 3;
+}
+.open .nav-toggle .bar3 {
+  width: 16px;
+  -webkit-transform: translate(-1px, 4px) rotate(-45deg);
+  transform: translate(-1px, 4px) rotate(-45deg);
+}
+
+.open .nav-toggle .bar2 {
+  width: 16px;
+  -webkit-transform: translate(-1px, -4px) rotate(45deg);
+  transform: translate(-1px, -4px) rotate(45deg);
+}
+#mask {
+  display: none;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 0.2rem;
-  background: rgba(24, 184, 212, 0.596);
-  transform: scale(0, 1); 
-  transform-origin: center; 
-  transition: 0.3s; 
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 2;
 }
-.kasenn:hover::after {
-  transform: scale(1, 1);
+.all {
+  transition: all 0.5s;
 }
+.open .all {
+  margin-left: 300px;
+}
+/*<===タイトルアニメーション===>*/
 .box-inner nav,
 .title {
   position: relative;
   z-index: 50;
 }
 .fade {
-  animation:fadeIn 4.5s ease .5s 1 normal;
+  animation: fadeIn 4.5s ease 0.5s 1 normal;
 }
-@keyframes fadeIn { 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
 
-  0% {opacity: 0} 
-  
-  100% {opacity: 1} 
+  100% {
+    opacity: 1;
+  }
 }
 /*<===header===>*/
 .header {
   width: 100%;
-  height: 35rem;
+  height: 40rem;
   color: #fff;
   z-index: 44;
   margin-bottom: 6rem;
@@ -161,30 +201,29 @@ h2::after {
   display: block;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 .header::before {
-  content: " ";
+  content: "";
   background-color: #000;
   z-index: 22;
-  opacity: 0.5;
+  opacity: 0.7;
   position: absolute;
   width: 100%;
-  height: 35rem;
+  height: 40rem;
 }
 .title {
   justify-content: center;
   align-items: center;
-  padding: 12rem 4rem;
+  padding: 17rem 4rem;
   font-size: 3rem;
   line-height: 4rem;
 }
 .title-next {
   padding: 3rem 13rem;
 }
-/*<===one===>*/
+/*<===profile===>*/
 .main-image {
-  width: 90%;
+  width: 98%;
   height: 35rem;
   background-image: url(../img/janis-rozenfelds-uGjyHuU2Ja0-unsplash-min.jpg);
   background-size: cover;
@@ -194,26 +233,27 @@ h2::after {
   margin: 0 auto;
 }
 .box-inner {
-  top: 15rem;
+  margin-top: 12rem;
+}
+.boxx-right {
   float: right;
-  z-index: 99;
-  margin-bottom: 10rem;
 }
 .secondary-image {
-  width: 90%;
+  width: 98%;
   height: 35rem;
   background-image: url(../img/koukichi-takahashi-8Iu6NzvLkz8-unsplash-min.jpg);
   background-size: cover;
   background-position: center;
   align-content: center;
-  z-index: 20;
-  margin: 10rem auto 0;
+  z-index: 22;
+  margin: 0 auto;
 }
 .secondary-inner {
-  top: 15rem;
+  margin-top: 12rem;
   z-index: 99;
-  margin-bottom: 8rem;
+  float: left;
 }
+
 .btn {
   background-color: #000;
   border: 2px solid #000;
@@ -232,8 +272,8 @@ h2::after {
   color: #fff;
   border: 2px solid rgba(24, 184, 212, 0.596);
   color: #000;
-  }
-/*<==two===>*/
+}
+/*<==selfpr===>*/
 .main-selfpr {
   margin-top: 10rem;
   width: 100%;
@@ -273,11 +313,11 @@ h3:after {
   height: 0.125rem;
   background-color: #fff;
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
 }
 .selfpr-contents {
   margin-top: 3rem;
-  width: 18rem;
+  width: 19rem;
   height: 18.25rem;
   position: relative;
   padding: 0 1rem;
@@ -312,45 +352,42 @@ h4 {
   display: flex;
   margin: 0 auto;
 }
-/*<===three===>*/
+/*<===trigger===>*/
 .trigger-bgc {
   width: 100%;
-  height: 43rem;
+  height: 40rem;
   background-color: rgb(247, 245, 245);
-  margin-bottom: 10rem;
 }
+
 .trigger-image {
-  width: 50%;
+  width: 45%;
   height: 35rem;
-  background-image: url(../img/zhang-kaiyv-LYI1JUBFVlY-unsplash-min.jpg);
+  background-image: url(../img/alex-knight-YDWrOJnpUFo-unsplash-min.jpg);
   background-size: cover;
   background-position: center;
   float: right;
-  margin-top: 4rem;
-  margin-right: 1rem;
+  margin-top: 2.5rem;
+  margin-right: 2rem;
 }
 
 .main-trigger {
   font-size: 2rem;
-  padding-top: .5rem;
-  padding-left: 8rem;
+  padding-top: 1.5rem;
 }
 .boxxx {
   display: inline-block;
-  padding: 8rem 3.5rem;
+  padding: 7rem 4rem 3rem 4rem;
   background-color: rgb(247, 245, 245);
   position: relative;
-  width: 35rem;
-  height: 43rem;
-  margin: .3rem -0.3rem auto 1.3rem;
+  top: -15rem;
+  margin-top: -30rem;
 }
 .trigger-wapper {
   font-size: 1.3rem;
   line-height: 2rem;
 }
-.wapper-about {
-  margin-bottom: 1.5rem;
-}
+
+
 .btn-mid {
   background-color: #000;
   border: 2px solid #000;
@@ -361,7 +398,7 @@ h4 {
   text-align: center;
   display: inline-block;
   margin-top: 4.5rem;
-  margin-left: 20rem;
+  margin-left: 21.5rem;
   transition: 0.8s;
 }
 .btn-mid:hover {
@@ -369,16 +406,18 @@ h4 {
   color: #fff;
   border: 2px solid rgba(24, 184, 212, 0.596);
   color: #000;
-  }
+}
 
 .navs {
+  bottom: 0;
   width: 100%;
   height: 10rem;
-  background-color: #000000;
+  background-color: rgb(247, 245, 245);
+  border-top: 3px solid #000;
   display: flex;
   align-items: center;
   padding-left: 1.5rem;
-  color: #fff;
+  color: #000;
   font-weight: bold;
   z-index: 33;
 }
@@ -389,50 +428,132 @@ h4 {
   padding: 2rem 7rem 0 5rem;
   font-weight: bold;
 }
-.firstt,
-.secondd {
-  margin-right: 6rem;
-}
+
 .last-nav-items li {
   margin-top: -1.5em;
   margin-left: 3rem;
   z-index: 88;
 }
 .last-nav-items a {
-  color: #fff;
+  color: #000;
   position: relative;
-  transition:0.3s ;
+  transition: 0.3s;
 }
 .last-nav-items a:hover {
   color: rgba(24, 184, 212, 0.596);
 }
 .btn-last {
   text-align: right;
-  background-color: #f0ececd7;
-  border: 2px solid rgba(247, 245, 245, 0.562);
+  background-color: #000;
   padding: 1rem 3.5rem;
   margin-left: 15rem;
   font-family: inherit;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
   transition: 0.8s;
 }
+.last-nav {
+  margin: auto 2.5rem;
+}
 .btn-last:hover {
   background-color: rgba(24, 184, 212, 0.596);
-  color: #fff;
-  }
+  color: #000;
+}
 .sp-nav {
   display: none;
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+/*<===モーダルウィンドー===>*/
+article {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 6.5rem auto;
+}
+.art {
+  width: 73rem;
+  display: flex;
+  align-items: center;
+  margin: 6rem auto;
+}
+
+.trigger-inner {
+  width: 50%;
+}
+
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: none;
+  z-index: 100;
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal-bg {
+  position: fixed;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-image: url(../img/etienne-girardet-Xh6BpT-1tXo-unsplash-min.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.modal-window {
+  background-color: white;
+  width: 66rem;
+  height: 80%;
+  margin: 6.25rem auto;
+}
+.modal-image {
+  width: 50rem;
+}
+.modal-article {
+  height: 21.87rem;
+  width: 70rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 3.13rem;
+}
+
+.modal-image {
+  height: 100%;
+}
+
+.modal-container {
+  width: 100%;
+  margin: 0.5rem;
+  margin: 10rem 2rem 0 2rem;
+}
+
+.modal-close-btn {
+  background-color: #000;
+  border: 2px solid #000;
+  color: #fff;
+  font-family: inherit;
+  width: 6.25rem;
+  height: 3.13rem;
+  margin: 4rem 2rem 2rem 0;
+  float: right;
+  text-align: center;
+  line-height: 3.13rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.8s;
+}
+.modal-close-btn:hover {
+  background-color: rgba(24, 184, 212, 0.596);
+  color: #fff;
+  border: 2px solid rgba(24, 184, 212, 0.596);
+  color: #000;
+}
+article img {
+  display: none;
+}
