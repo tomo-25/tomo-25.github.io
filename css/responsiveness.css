@@ -2,14 +2,13 @@
   html {
     font-size: 13px;
   }
+  .all {
+    overflow: hidden;
+  }
   .header,
   .selfpr-inner {
     background-attachment: scroll;
   }
-  /* .nav-items {
-    display: flex;
-    padding-left: 5rem;
-  } */
   .header {
     position: relative;
   }
@@ -22,12 +21,26 @@
   .navs {
     display: none;
   }
-  .box-inner {
-    top: 15rem;
-    margin-left: 5rem;
-    z-index: 99;
-    margin-bottom: 10rem;
+  .boxx-left {
+    margin-left: -2rem;
   }
+  .boxx-right {
+    top: 6em;
+  }
+  .main-image {
+    top: -3rem;
+    margin-bottom: 5rem;
+  }
+
+  .secondary-inner {
+    padding: 6rem 9rem 6rem 2rem;
+    float: left;
+  }
+
+  .secondary-profile {
+    font-size: 1.5rem;
+  }
+
   .main-selfpr {
     margin-top: 10rem;
   }
@@ -39,24 +52,36 @@
     flex-direction: column;
     align-items: center;
   }
+  .trigger-inner {
+    padding: 6rem 46rem 4rem 1rem;
+  }
   .main-trigger {
     font-size: 1.5rem;
     padding-left: 7.5rem;
   }
+  .trigger {
+    height: 22rem;
+  }
   .trigger-bgc {
-    height: 85rem;
-    margin-bottom:.01rem;
+    height: 50rem;
+    margin-bottom: 0.01rem;
   }
   .trigger-image {
     width: 90%;
     margin-right: 1.5rem;
   }
   .trigger-wapper {
-    margin:auto 0;
+    margin: 0 0 0 4rem;
   }
   .boxxx {
     width: 100%;
+    bottom: 15rem;
     margin: -4rem 1rem auto auto;
+    justify-content: center;
+    
+  }
+  .btn {
+    margin-left: 10rem;
   }
   .btn-mid {
     margin-left: 14rem;
@@ -66,8 +91,28 @@
     margin-left: 3rem;
     margin-right: 2rem;
   }
+  .modal-container {
+    margin: 18rem 2rem 0 2rem;
+  }
+  .modal-window {
+    width: 88%;
+    margin: 1.5rem auto;
+  }
 
-  /*追加*/
+  .modal-img {
+    position: absolute;
+    height: 15rem;
+    top: 3rem;
+    right: 3rem;
+  }
+  .modal-article {
+    height: 21.87rem;
+    width: 100%;
+    flex-direction: column;
+  }
+  .modal-close-btn {
+    margin-top: 22rem;
+  }
   .sp-nav {
     display: block;
     position: fixed;
@@ -75,19 +120,17 @@
     bottom: 0;
     width: 100%;
     background-color: gray;
-
     z-index: 9999;
     padding: 1rem 0;
-
- 
   }
   .sp-items {
     display: flex;
     justify-content: space-around;
   }
-  .sp-items a{
+  .sp-items a {
     color: #000000;
   }
-  
-  
+  .wrapper {
+    display: none;
+  }
 }
