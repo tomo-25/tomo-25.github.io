@@ -46,7 +46,7 @@
   }
   .selfpr-inner,
   .selfpr-inner::before {
-    height: 82rem;
+    height: 85rem;
   }
   .selfpr-wapper {
     flex-direction: column;
