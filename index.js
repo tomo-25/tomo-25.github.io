@@ -26,6 +26,7 @@
   $(function () {
     $("a.more").on("click", function () {
       $(".modal").addClass("open");
+      $('body').addClass('fixed');
       $(".modal-title").html($(this).parents("article").find(".article-title").html());
       $(".modal-content").html($(this).parents('article').find(".article-content").html());
       $(".modal-image > img").attr(
@@ -35,6 +36,7 @@
     });
     $(".modal-close-btn , .modal-bg").on("click", function () {
       $(".modal").removeClass("open");
+       $('body').removeClass('fixed');
       console.log("hogehoge");
       return false;
     });
