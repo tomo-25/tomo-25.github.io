@@ -463,6 +463,9 @@ h4 {
   display: none;
 }
 /*<===モーダルウィンドー===>*/
+body.fixed {
+  position: fixed;
+}
 article {
   width: 90%;
   display: flex;
