@@ -22,24 +22,24 @@
     $body.removeClass ( open );
   });
 } )(jQuery);
-  /*モーダルウィンドー*/
- $(function () {
-      $("a.more").on("click", function () {
-        scrollPos = $(window).scrollTop();
-        $(".modal").addClass("open");
-        $('body').addClass('fixed').css({ top: -scrollPos });
-        $(".modal-title").html($(this).parents("article").find(".article-title").html());
-        $(".modal-content").html($(this).parents('article').find(".article-content").html());
-        $(".modal-image > img").attr(
-          `src`,
-          $(this).parents("article").find(`img`).attr(`src`)
-        );
-      });
-      $(".modal-close-btn , .modal-bg").on("click", function () {
-        $(".modal").removeClass("open");
-        $('body').removeClass('fixed').css({ top: 0 });
-        $(window).scrollTop(scrollPos);
-        console.log("hogehoge");
-        return false;
-      });
+  /*モーダルウィンドウ*/
+  $(function () {
+    $("a.more").on("click", function () {
+      scrollPos = $(window).scrollTop();
+      $(".modal").addClass("open");
+      $('body').addClass('fixed').css({ top: -scrollPos });
+      $(".modal-title").html($(this).parents("article").find(".article-title").html());
+      $(".modal-content").html($(this).parents('article').find(".article-content").html());
+      $(".modal-image > img").attr(
+        `src`,
+        $(this).parents("article").find(`img`).attr(`src`)
+      );
     });
+    $(".modal-close-btn , .modal-bg").on("click", function () {
+      $(".modal").removeClass("open");
+      $('body').removeClass('fixed').css({ top: 0 });
+      $(window).scrollTop(scrollPos);
+      console.log("hogehoge");
+      return false;
+    });
+  });
