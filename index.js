@@ -1,27 +1,27 @@
 /*ハンバーガーメニュー*/
 (function($) {
-  var $body   = $('body');
-  var $btn   = $('.nav-toggle');
-  var $mask  = $('#mask');
-  var $wrapper = $('.nav-wrapper')
-  var open   = 'open'; // class
-  // menu open close
-  $btn.on( 'click', function() {
-    if ( ! $body.hasClass( open ) ) {
-      $body.addClass( open );
-    } else {
+    var $body   = $('body');
+    var $btn   = $('.nav-toggle');
+    var $mask  = $('#mask');
+    var $wrapper = $('.nav-wrapper')
+    var open   = 'open'; // class
+    // menu open close
+    $btn.on( 'click', function() {
+      if ( ! $body.hasClass( open ) ) {
+        $body.addClass( open );
+      } else {
+        $body.removeClass( open );
+      }
+    });
+    // mask close
+    $mask.on('click', function() {
       $body.removeClass( open );
-    }
-  });
-  // mask close
-  $mask.on('click', function() {
-    $body.removeClass( open );
-  });
-  //wrapper close
-  $wrapper.on('click',function() {
-    $body.removeClass ( open );
-  });
-} )(jQuery);
+    });
+    //wrapper close
+    $wrapper.on('click',function() {
+      $body.removeClass ( open );
+    });
+  } )(jQuery);
   /*モーダルウィンドウ*/
   $(function () {
     $("a.more").on("click", function () {
