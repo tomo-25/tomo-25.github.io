@@ -205,6 +205,24 @@ h2::after {
     opacity: 1;
   }
 }
+/*<===タイトルアニメーション===>*/
+.box-inner nav,
+.title {
+  position: relative;
+  z-index: 50;
+}
+.fade {
+  animation: fadeIn 4.5s ease 0.5s 1 normal;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 /*<===header===>*/
 .header {
   width: 100%;
